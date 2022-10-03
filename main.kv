@@ -14,31 +14,38 @@
     size_hint_y: 1
     font_size: 30
 
-FloatLayout:
+BoxLayout:
+    padding: 10
+    spacing: 10
     BoxLayout:
-        pos_hint: {'center_x': .5, 'center_y': .5}
-        size_hint: (None, None)
-        center: root.center
-        orientation: 'vertical'
-        size: [min(root.width, root.height) - 2 * padding] * 2
+        size_hint_x: 2
+        size_hint_y: 1
         MainGrid:
             id: main_grid
-            size_hint_y: 9
             center: root.center
             size: [min(root.width, root.height) - 2 * padding] * 2
+    BoxLayout:
+        size_hint_x: 1
+        size_hint_y: 1
+        orientation: 'vertical'
         SubGrid:
             id: number_grid
-            size_hint_x: .25
-            size_hint_y: 2.5
+            size_hint_y: 1
             center: root.center
-            padding: [0, 10, 0, 0]
-        # BoxLayout:
-        #     size_hint_y: 1
-        #     padding: [0, 10, 0, 0]
-            # Button:
-            #     id: solve_button
-            #     text: 'Solve'
-            #     size_hint_x: .25
-            #     size_hint_y: 2.5
-            #     center: root.center
-            #     on_press: app.solve()
+            padding: [5, 0, 0, 10]
+        BoxLayout:
+            size_hint_y: 1
+            padding: [5, 0, 0, 0]
+            orientation: 'vertical'
+            Button:
+                id: reset_button
+                text: 'Reset'
+                size_hint_y: .5
+                center: root.center
+                on_press: app.reset()
+            Button:
+                id: solve_button
+                text: 'Solve'
+                size_hint_y: .5
+                center: root.center
+                on_press: app.solve()
